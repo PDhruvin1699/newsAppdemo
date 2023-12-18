@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'News App',
+          'News',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -77,13 +77,20 @@ class HomePage extends StatelessWidget {
                             errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
                               // Handle the error here, you can show a placeholder or an error message.
                               return Container(
-                                color: Colors.grey, // Placeholder color
+                                color: Colors.white38, // Placeholder color
                                 height: 150.0,
-                                child: Center(
-                                  child: Icon(
-                                    Icons.error,
-                                    color: Colors.red,
-                                  ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Center(
+                                      child: Icon(
+                                        Icons.error,
+                                        color: Colors.red,
+                                      ),
+                                    ),Center(
+                                      child: Text('No image'),
+                                    )
+                                  ],
                                 ),
                               );
                             },

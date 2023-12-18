@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 3), () {
 // navigate to home screen
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (BuildContext context) => HomePage()));

@@ -8,26 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../contacts/news_repository.dart';
 
-//
-// class NewsBloc extends Bloc<NewsEvent, NewsState> {
-//   final NewsRepository newsRepository;
-//
-//   NewsBloc({required this.newsRepository}) : super(NewsInitial());
-//
-//   @override
-//   Stream<NewsState> mapEventToState(
-//       NewsEvent event,
-//       ) async* {
-//     if (event is FetchNews) {
-//       try {
-//         final List<ArticleModel> articles = await newsRepository.getNews();
-//         yield NewsLoaded(articles: articles);
-//       } catch (e) {
-//         yield NewsError(errorMessage: 'Failed to fetch news');
-//       }
-//     }
-//   }
-// }
 import 'package:bloc/bloc.dart';
 import 'package:blocnewsdemo/blocs/news_event.dart';
 import 'package:blocnewsdemo/blocs/news_state.dart';
