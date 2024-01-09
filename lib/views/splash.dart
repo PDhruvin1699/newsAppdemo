@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:blocnewsdemo/views/signup.dart';
+import 'package:blocnewsdemo/views/syn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 2), () {
 // navigate to home screen
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+          MaterialPageRoute(builder: (BuildContext context) => SignUpScreen()));
     });
   }
 

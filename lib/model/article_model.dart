@@ -45,7 +45,7 @@ class ArticleModel {
   final String urlToImage;
   final String publishedAt;
   final String content;
-
+  bool isLiked;
   ArticleModel({
     required this.id,
     required this.sourceName,
@@ -56,19 +56,35 @@ class ArticleModel {
     required this.urlToImage,
     required this.publishedAt,
     required this.content,
+    this.isLiked = false,
   });
 
+  // factory ArticleModel.fromJson(Map<String, dynamic> json) {
+  //   return ArticleModel(
+  //     id: json['id'] ?? "",
+  //     sourceName: json['source']['name'] ?? "",
+  //     author: json['author'] ?? "",
+  //     title: json['title'] ?? "",
+  //     description: json['description'] ?? "",
+  //     url: json['url'] ?? "",
+  //     urlToImage: json['urlToImage'] ?? "",
+  //     publishedAt: json['publishedAt'] ?? "",
+  //     content: json['content'] ?? "",
+  //   );
+  // }
   factory ArticleModel.fromJson(Map<String, dynamic> json) {
     return ArticleModel(
-      id: json['id'] ?? "",
-      sourceName: json['source']['name'] ?? "",
-      author: json['author'] ?? "",
-      title: json['title'] ?? "",
-      description: json['description'] ?? "",
-      url: json['url'] ?? "",
-      urlToImage: json['urlToImage'] ?? "",
-      publishedAt: json['publishedAt'] ?? "",
-      content: json['content'] ?? "",
+      id: json['id']?.toString() ?? '0', // Convert id to String or use '0' as a default
+      sourceName: json['source']?['name'] as String? ?? 'Unknown Source',
+      author: json['author'] as String? ?? 'Unknown Author',
+      title: json['title'] as String? ?? 'No Title',
+      description: json['description'] as String? ?? 'No Description',
+      url: json['url'] as String? ?? 'No URL',
+      urlToImage: json['urlToImage'] as String? ?? 'No Image',
+      publishedAt: json['publishedAt'] as String? ?? 'No Date',
+      content: json['content'] as String? ?? 'No Content',
     );
   }
+
+
 }

@@ -1,6 +1,8 @@
 
 import 'package:equatable/equatable.dart';
 
+import '../model/article_model.dart';
+
 // abstract class NewsEvent extends Equatable {
 //   const NewsEvent();
 // }

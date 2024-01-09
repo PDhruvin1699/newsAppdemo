@@ -60,7 +60,7 @@ abstract class LoadedNewsState extends NewsState {
 }
 
 class NewsLoaded extends LoadedNewsState {
-  NewsLoaded({required List<ArticleModel> articles, required int currentPage})
+  NewsLoaded({required List<ArticleModel> articles, required int currentPage, required bool isLikedPage,})
       : super(articles: articles, currentPage: currentPage);
 }
 class NewsLoading extends NewsState {

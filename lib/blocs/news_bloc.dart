@@ -73,7 +73,7 @@ import 'package:blocnewsdemo/blocs/news_state.dart';
 // }
 // ... (imports remain unchanged)
 // ... (imports remain unchanged)
-
+///
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   final NewsRepository newsRepository;
   final int itemsPerPage = 3;
@@ -82,12 +82,14 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     on<FetchNews>(_mapFetchNewsToState);
   }
 
+
+
   Future<void> _mapFetchNewsToState(FetchNews event, Emitter<NewsState> emit) async {
     try {
       final List<ArticleModel> articles = await newsRepository.getNews(page: event.page);
 
       if (event.page == 1) {
-        emit(NewsLoaded(articles: articles, currentPage: event.page));
+        emit(NewsLoaded(articles: articles, currentPage: event.page, isLikedPage: false));
       } else if (state is NewsLoaded) {
         final List<ArticleModel> existingArticles = (state as NewsLoaded).articles;
 
@@ -100,6 +102,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
           emit(NewsLoaded(
             articles: [...existingArticles, ...newArticles],
             currentPage: event.page,
+            isLikedPage: false,
           ));
         }
       }
@@ -107,7 +110,10 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       emit(NewsError(errorMessage: 'Failed to fetch news. Error: $e'));
     }
   }
+
 }
+
+
 
 // ... (rest of the code remains unchanged)
 
